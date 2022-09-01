@@ -23,7 +23,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  Future<UserCredential> signInWithGoogle() async {
+  Future<UserCredential?> signInWithGoogle() async {
     if (kIsWeb) {
       GoogleAuthProvider googleProvider = GoogleAuthProvider();
 
@@ -135,26 +135,27 @@ class _LoginPageState extends State<LoginPage> {
             //   shrinkWrap: true,
             //   physics: NeverScrollableScrollPhysics(),
             //   gridDelegate: gridDelegate, crossAxisCount: null,),
-           if(Platform.isIOS) ButtonLogin(
-              onTap: () {},
-              backgroundColor: Colors.black,
-              borderColor: Colors.black,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(R.assets.icAple),
-                  SizedBox(width: 15),
-                  Text(
-                    R.strings.loginWithApple,
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
+            if (Platform.isIOS)
+              ButtonLogin(
+                onTap: () {},
+                backgroundColor: Colors.black,
+                borderColor: Colors.black,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(R.assets.icAple),
+                    SizedBox(width: 15),
+                    Text(
+                      R.strings.loginWithApple,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
           ],
         ),
       ),
@@ -168,7 +169,8 @@ class ButtonLogin extends StatelessWidget {
     required this.backgroundColor,
     required this.child,
     required this.borderColor,
-    required this.onTap, this.radius,
+    required this.onTap,
+    this.radius,
   }) : super(key: key);
   final double? radius;
   final Color backgroundColor;
@@ -185,7 +187,7 @@ class ButtonLogin extends StatelessWidget {
           primary: backgroundColor,
           elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular( radius ?? 25),
+            borderRadius: BorderRadius.circular(radius ?? 25),
             side: BorderSide(
               color: borderColor,
             ),
