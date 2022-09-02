@@ -1,11 +1,12 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:git_project/constants/api_url.dart';
 import 'package:git_project/helpers/user_email.dart';
 import 'package:git_project/models/network_response.dart';
 
-class LatihanSoalApi {
+class LatihanSoalApi with ChangeNotifier {
   Dio dioApi() {
     BaseOptions options = BaseOptions(
       baseUrl: ApiUrl.baseUrl,

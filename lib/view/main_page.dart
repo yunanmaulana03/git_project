@@ -4,6 +4,7 @@ import 'package:git_project/view/main/discussion/chat_page.dart';
 import 'package:git_project/view/main/latihan_soal/home_page.dart';
 import 'package:git_project/view/main/profile/profile_page.dart';
 
+
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
   static String route = "main_page";
